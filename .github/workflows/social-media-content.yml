@@ -1,0 +1,28 @@
+name: Generate Social Media Content
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # every day at 9 AM IST (adjust as needed)
+  workflow_dispatch:
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Progress Report
+        run: |
+          echo "# Daily Progress" > daily-progress.md
+          echo "**Commits today**: $(git log --oneline --since='1 day ago' | wc -l)" >> daily-progress.md
+          echo "**Files changed**: $(git diff --name-only HEAD~1 HEAD | wc -l)" >> daily-progress.md
+
+      - name: Commit report
+        run: |
+          git config --global user.name 'SHUBHADEEPXT'
+          git config --global user.email 'shubhadeep010@gmail.com'
+          git add daily-progress.md
+          git commit -m "chore: update daily progress"
+          git push
