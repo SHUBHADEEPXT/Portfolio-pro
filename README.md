@@ -20,11 +20,15 @@ To create a **public, recruiter-ready portfolio** that demonstrates:
 
 ## 🏗️ Current Architecture
 
-### ✅ Completed (Days 1-2)
+### ✅ Completed (Days 3/28)
 - **Development Environment**: WSL Ubuntu 24.04.2 LTS, Node.js v22.18.0
 - **Version Control**: Dual GitHub account workflow, branch protection rules
 - **Frontend Setup**: Next.js 15 + TypeScript + Tailwind CSS
 - **First UI Component**: Interactive DevOps Skills Showcase (click-to-expand skill cards with ratings)
+- **Multi-Page Structure**: Implemented file-based routing for Home, About, Projects, and Contact pages
+- **Navigation Component**: Reusable `<Navigation />` with active link styling via `usePathname()`
+- **Hero Section**: Added branding text and responsive layout to Home page
+
 
 ### 🎯 Upcoming
 - Multi-page portfolio structure with Next.js routing
@@ -76,36 +80,36 @@ devops-portfolio-pro/
 
 ---
 
-
----
-
 ## 💡 Skills Demonstrated So Far
 - **Frontend**: React functional components, props, state, events, Tailwind styling
-- **Next.js**: Client vs server components, hot reload, TypeScript integration
+- **Next.js**: Client vs server components, hot reload, TypeScript integration, file-based routing, dynamic active states
+- **Accessibility**: `aria-current` usage, keyboard focus outlines in navigation
 - **DevOps**: Git workflows, branch protection, repository security
-- **Problem-Solving**: Debugging caching issues, hook usage errors
+- **Problem-Solving**: Fixed active link not updating (missing `"use client"`), resolved 404 from incorrect folder structure
+
 
 ---
 
 ## 📝 Daily Logs
 - **[Day 1: Project Setup & Git Workflow](./docs/learning/DAY-01-SETUP.md)**
 - **[Day 2: React Fundamentals & Interactive Component](./docs/learning/DAY-02-REACT-FUNDAMENTALS.md)**
+- **[Day 3: Next.js Multi-Page Portfolio](./docs/learning/DAY-03-NEXTJS-MULTIPAGE.md)**
 
 ---
 
-## 🔮 What's Next (Day 3 Preview)
-- Implement **Next.js file-based routing**
-- Add **navigation bar** with active link styling
-- Create **hero section** with personal branding
-- Prepare multi-page portfolio (About, Projects, Skills, Contact)
+## 🔮 What's Next (Day 4 Preview)
+- Polish **navigation** (mobile hamburger + keyboard focus states)
+- Improve **Hero** (CTA button + 3 highlight cards)
+- Add **Projects** placeholder cards (copy + layout only)
+- Wire **Contact** quick links (X, LinkedIn, GitHub profiles)
 
 ---
 
 ## 📊 Progress Metrics
-- **Days Completed**: 2 / 28
+- **Days Completed**: 3 / 28
 - **Frontend Confidence**: React (8/10), Next.js (7/10)
 - **DevOps Confidence**: Git Workflow (9/10), Containerization (8/10 planned)
-- **Time Invested**: 6 hours total so far
+- **Time Invested**: 9 hours total so far
 
 ---
 
@@ -118,6 +122,6 @@ This project is being documented in detail for:
 ---
 
 **Author**: Shubhadeep Bhowmik
-**Last Updated**: August 9, 2025
+**Last Updated**: August 10, 2025
 **License**: MIT
 
