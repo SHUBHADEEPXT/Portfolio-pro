@@ -47,7 +47,7 @@ To create a **public, recruiter-ready portfolio** that demonstrates:
 |-----|-------|--------|
 | 1 | Environment setup, Git workflow, repo security | ✅ Completed |
 | 2 | React fundamentals, first interactive component | ✅ Completed |
-| 3 | Next.js multi-page structure, navigation | 🔄 Planned |
+| 3 | Next.js multi-page structure, navigation | ✅ Completed |
 | 4–7 | Responsive design, styling, content integration | 🔄 Planned |
 | 8–14 | Backend API, database, authentication | 🔄 Planned |
 | 15–21 | Docker, Kubernetes, Terraform | 🔄 Planned |
