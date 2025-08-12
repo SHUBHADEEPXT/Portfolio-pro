@@ -31,6 +31,15 @@ DevOps Portfolio Learning Journey
   - Built `<Navigation />` with active link styling using `usePathname()` 
   - Added responsive hero section with branding text
 
+### ✅ **Day 4**: Dynamic Routing & Project Showcases
+- **Date**: August 11, 2025 
+- **Status**: COMPLETED 
+- **Focus**: Dynamic routing with `[slug]`, centralized project data, professional project detail pages 
+- **Achievement**:
+  - Implemented dynamic `[slug]` routes for individual projects
+  - Built `projects.ts` data structure with TypeScript interface
+  - Styled project detail pages with tech stacks, features, challenges, outcomes
+
 ---
 
 ## 🏆 Progress Summary
@@ -42,14 +51,16 @@ DevOps Portfolio Learning Journey
 - [x] **React Foundation** - Components, props, state, events
 - [x] **Interactive UI** - Click-to-expand skill cards
 - [x] **Next.js Multi-Page Portfolio** - Routing, navigation, hero complete
+- [x] **Dynamic Routing & Project Showcases** - `[slug]` routes with data‑driven detail pages
 
 ### Current Capabilities:
 - ✅ Component-based thinking and design
 - ✅ React functional components with hooks
 - ✅ State management and event handling 
-- ✅ Next.js development workflow
-- ✅ Professional Git version control
-- ✅ TypeScript and Tailwind CSS integration
+- ✅ Next.js dynamic routing with `[slug]`
+- ✅ Data‑driven pages via centralized TypeScript models
+- ✅ Accessible navigation (`aria-current`, focus states)
+- ✅ Next.js 15 async `params` handling
 
 ---
 
@@ -74,6 +85,14 @@ DevOps Portfolio Learning Journey
    - Browser debugging techniques
    - Git best practices for frontend projects
    - Professional project organization
+
+4. **Dynamic Routing & Data Architecture**
+   - Next.js `[slug]` routes for scalable detail pages
+   - Awaiting `params` (Next.js 15) and typing route params
+   - Centralized `Project` interface + helper selectors
+   - Error states and “Not Found” UX
+   - Breadcrumbs / back‑to‑list navigation patterns
+
 
 ### Conceptual Understanding:
 - **Component Thinking**: Breaking UIs into reusable pieces
@@ -102,6 +121,12 @@ DevOps Portfolio Learning Journey
 - **Accessibility matters**: `aria-current` and focus outlines improve usability
 - **Debugging in context**: Solved active link bug by adding `"use client"` and correct hooks
 
+### Day 4 Insights:
+- **One route, infinite pages**: `[slug]` scales without copy‑pasting folders
+- **Data first**: A central model keeps UI clean and consistent
+- **Async params**: Await `params` in Next.js 15 to avoid runtime errors
+- **UX polish**: Breadcrumbs and “Back to Projects” reduce friction
+
 ---
 
 ## 📊 Skill Development Tracking
@@ -111,7 +136,9 @@ DevOps Portfolio Learning Journey
 - **React Hooks (useState)**: 8/10 ⭐⭐⭐⭐⭐⭐⭐⭐
 - **Event Handling**: 7/10 ⭐⭐⭐⭐⭐⭐⭐
 - **TypeScript Basics**: 6/10 ⭐⭐⭐⭐⭐⭐
-- **Next.js Framework**: 7/10 ⭐⭐⭐⭐⭐⭐⭐
+- **Next.js Framework**: 8/10 ⭐⭐⭐⭐⭐⭐⭐
+- **Dynamic Routing**: 9/10 ⭐⭐⭐⭐⭐⭐⭐⭐⭐
+- **Data Modeling (TS interfaces)**: 7/10 ⭐⭐⭐⭐⭐⭐⭐
 
 ### DevOps Technologies (Current Focus):
 - **Docker**: 8/10 ⭐⭐⭐⭐⭐⭐⭐⭐
@@ -128,7 +155,7 @@ DevOps Portfolio Learning Journey
 - [x] **Day 1**: Environment & Project Foundation
 - [x] **Day 2**: React Fundamentals
 - [x] **Day 3**: Next.js Multi-Page Structure
-- [ ] **Day 4**: Responsive Design & Components
+- [x] **Day 4**: Dynamic Routing
 - [ ] **Day 5**: Professional Styling & Layout
 - [ ] **Day 6**: Portfolio Content Integration
 - [ ] **Day 7**: Week 1 Review & Deployment
@@ -157,8 +184,8 @@ DevOps Portfolio Learning Journey
 ### Detailed Learning Logs:
 - **[Day 1](./daily-logs/DAY-01-SETUP.md)**: Environment setup and project foundation
 - **[Day 2](./daily-logs/DAY-02-REACT-FUNDAMENTALS.md)**: React fundamentals and interactive components
-- **[Day 3: Next.js Multi-Page Portfolio](./docs/learning/DAY-03-NEXTJS-MULTIPAGE.md)**
-
+- **[Day 3](./docs/learning/DAY-03-NEXTJS-MULTIPAGE.md)** Next.js Multi-Page Portfolio
+- **[Day 4](./docs/learning/daily-logs/DAY-04-DYNAMIC-ROUTING.md)** Dynamic Routing & Project Showcases
 
 ### Weekly Reviews:
 - **Week 1 Review**: *(Planned for Day 7)*
@@ -174,6 +201,6 @@ DevOps Portfolio Learning Journey
 
 ---
 
-**Last Updated**: August 10, 2025
+**Last Updated**: August 12, 2025
 **Current Phase**: Frontend Foundation (Week 1)
-**Next Milestone**: Multi-page portfolio with professional navigation (Day 3)
+**Next Milestone**: Professional Styling & Layout (Day 5)
