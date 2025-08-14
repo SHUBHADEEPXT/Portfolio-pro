@@ -20,27 +20,16 @@ To create a **public, recruiter-ready portfolio** that demonstrates:
 
 ## 🏗️ Current Architecture
 
-### ✅ Completed (Days 4/28)
-- **Development Environment**: WSL Ubuntu 24.04.2 LTS, Node.js v22.18.0
-- **Version Control**: Dual GitHub account workflow, branch protection rules
-- **Frontend Setup**: Next.js 15 + TypeScript + Tailwind CSS
-- **First UI Component**: Interactive DevOps Skills Showcase (click-to-expand skill cards with ratings)
-- **Multi-Page Structure**: Implemented file-based routing for Home, About, Projects, and Contact pages
-- **Navigation Component**: Reusable `<Navigation />` with active link styling via `usePathname()`
-- **Hero Section**: Added branding text and responsive layout to Home page
-- **Dyamic Routing**: Added pages for each individual projects using Dynamic Routing
-
-### 🎯 Upcoming
-- Multi-page portfolio structure with Next.js routing
-- Navigation and hero sections
-- Backend API with Node.js/Express
-- Dockerized local development
-- Terraform AWS infrastructure
-- GitHub Actions CI/CD pipeline
-- Prometheus + Grafana monitoring
+![DevOps Portfolio Architecture](./docs/architecture/DevOps_Portfolio_Arch.png)
 
 ---
 
+## 🛠️ Tech Stack
+**Frontend:** Next.js 15 + TypeScript + Tailwind CSS
+**DevOps:** GitHub Actions, Terraform (planned), Prometheus/Grafana (planned)
+**Environments:** Local (WSL), Vercel (staging), AWS (planned production)
+
+---
 ## 📅 Learning Timeline
 
 | Day | Focus | Status |
@@ -80,35 +69,26 @@ devops-portfolio-pro/
 
 ---
 
-## 💡 Skills Demonstrated So Far
-- **Frontend**: React functional components, props, state, events, Tailwind styling
-- **Next.js**: Client vs server components, hot reload, TypeScript integration, file-based routing, dynamic active states
-- **Accessibility**: `aria-current` usage, keyboard focus outlines in navigation
-- **DevOps**: Git workflows, branch protection, repository security
-- **Problem-Solving**: Fixed active link not updating (missing `"use client"`), resolved 404 from incorrect folder structure
+## 📝 Quick Start
+
+# Clone the repo
+git clone https://github.com/SHUBHADEEPXT/Portfolio-pro.git
+
+# Enter the project
+cd Portfolio-pro/frontend
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
 
 ---
 
-## 📝 Daily Logs
-- **[Day 1: Project Setup & Git Workflow](./docs/learning/DAY-01-SETUP.md)**
-- **[Day 2: React Fundamentals & Interactive Component](./docs/learning/DAY-02-REACT-FUNDAMENTALS.md)**
-- **[Day 3: Next.js Multi-Page Portfolio](./docs/learning/DAY-03-NEXTJS-MULTIPAGE.md)**
-- **[Day 4: Dynamic Routing & Project Showcases](./docs/learning/daily-logs/DAY-04-DYNAMIC-ROUTING.md)**
+## 📚 Learn More
 
----
-
-## 🔮 What's Next (Day 5 Preview)
-- Optimize images with **next/image**
-- Add animations with **Framer Motion**
-- Improve **mobile responsiveness**
-
----
-
-## 📊 Progress Metrics
-- **Days Completed**: 4 / 28
-- **Frontend Confidence**: React (8/10), Next.js (7/10)
-- **DevOps Confidence**: Git Workflow (9/10), Containerization (8/10 planned)
-- **Time Invested**: 12 hours total so far
+- Project Overview – Full details, roadmap, and weekly reviews
+- Daily Learning Log – Day-by-day progress
 
 ---
 
@@ -121,6 +101,7 @@ This project is being documented in detail for:
 ---
 
 **Author**: Shubhadeep Bhowmik
+**Days Completed**: 4/28
 **Last Updated**: August 12, 2025
 **License**: MIT
 
