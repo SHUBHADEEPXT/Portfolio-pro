@@ -1,145 +1,240 @@
-import Navigation from '../../components/Navigation';
-import { getProjectBySlug } from '../../data/projects';
+// src/app/projects/[slug]/page.tsx
+// Updated with beautiful theme-matched placeholders
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getProjectBySlug(slug);
+import Link from 'next/link'
+import { ChevronLeft, ExternalLink, Github } from 'lucide-react'
+import { getProjectBySlug, getAllProjects } from '@/lib/projects'
+import { 
+  DashboardPlaceholder, 
+  PipelinePlaceholder, 
+  ArchitecturePlaceholder,
+  KubernetesPlaceholder,
+  SecurityPlaceholder,
+  PerformancePlaceholder,
+  TechIconPlaceholder 
+} from '@/components/ui/ProjectPlaceholders'
+import {
+  DevOpsHeroBackground,
+  KubernetesHeroBackground,
+  PipelineHeroBackground
+} from '@/components/ui/HeroBackgrounds'
 
-    if (!project) {
-        return (
-            <>
-                <Navigation />
-                <div className="min-h-screen bg-gray-50 py-12">
-                    <div className="max-w-4xl mx-auto px-4 text-center">
-                        <h1 className="text-4xl font-bold text-gray-900 mb-4">Project Not Found</h1>
-                        <p className="text-xl text-gray-600">Sorry, the project "{slug}" doesn't exist.</p>
-                        <a href="/projects" className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                            ← Back to Projects
-                        </a>
-                    </div>
-                </div>
-            </>
-        );
-    }
+interface ProjectPageProps {
+  params: Promise<{
+    slug: string
+  }>
+}
 
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = await getProjectBySlug(slug)
+  
+  if (!project) {
     return (
-        <>
-            <Navigation />
-            <div className="min-h-screen bg-gray-50 py-12">
-                <div className="max-w-4xl mx-auto px-4">
-                    {/* Breadcrumb Navigation */}
-                    <nav className="mb-8">
-                        <ol className="flex items-center space-x-2 text-sm text-gray-600">
-                            <li>
-                                <a href="/" className="hover:text-blue-600">Home</a>
-                            </li>
-                            <li className="flex items-center">
-                                <svg className="mx-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                                </svg>
-                                <a href="/projects" className="hover:text-blue-600">Projects</a>
-                            </li>
-                            <li className="flex items-center">
-                                <svg className="mx-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-gray-900 font-medium">{project.title}</span>
-                            </li>
-                        </ol>
-                    </nav>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900">Project not found</h1>
+          <Link href="/projects" className="text-blue-600 hover:text-blue-800 mt-4 inline-block">
+            ← Back to Projects
+          </Link>
+        </div>
+      </div>
+    )
+  }
 
-                    {/* Hero Section */}
-                    <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-                        <h1 className="text-4xl font-bold text-gray-900 mb-4">{project.title}</h1>
-                        <p className="text-xl text-gray-600 mb-6">{project.longDescription}</p>
-                        
-                        {/* GitHub Link */}
-                        {project.githubUrl && (
-                            <a 
-                                href={project.githubUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-                            >
-                                <span>View on GitHub</span>
-                                <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                </svg>
-                            </a>
-                        )}
+  // Helper function to get appropriate hero background (no text overlap)
+  const getHeroBackground = (projectSlug: string) => {
+    switch (projectSlug) {
+      case 'devops-automation':
+        return <DevOpsHeroBackground width={1200} height={400} className="absolute inset-0 w-full h-full" />
+      case 'kubernetes-cluster':
+        return <KubernetesHeroBackground width={1200} height={400} className="absolute inset-0 w-full h-full" />
+      case 'ci-cd-pipeline':
+        return <PipelineHeroBackground width={1200} height={400} className="absolute inset-0 w-full h-full" />
+      default:
+        return <DevOpsHeroBackground width={1200} height={400} className="absolute inset-0 w-full h-full" />
+    }
+  }
+
+  const getScreenshots = (projectSlug: string) => {
+    switch (projectSlug) {
+      case 'devops-automation':
+        return [
+          { component: <DashboardPlaceholder width={800} height={400} />, title: "Main Dashboard", desc: "Real-time monitoring and metrics visualization" },
+          { component: <PerformancePlaceholder width={800} height={400} />, title: "Performance Metrics", desc: "System performance analytics" }
+        ]
+      case 'kubernetes-cluster':
+        return [
+          { component: <KubernetesPlaceholder width={800} height={400} />, title: "Cluster Dashboard", desc: "Pod and service management interface" },
+          { component: <SecurityPlaceholder width={800} height={400} />, title: "Security Monitor", desc: "Cluster security and compliance monitoring" }
+        ]
+      case 'ci-cd-pipeline':
+        return [
+          { component: <PipelinePlaceholder width={800} height={400} />, title: "Pipeline Dashboard", desc: "CI/CD workflow visualization" },
+          { component: <PerformancePlaceholder width={800} height={400} />, title: "Build Analytics", desc: "Performance metrics and build history" }
+        ]
+      default:
+        return [
+          { component: <DashboardPlaceholder width={800} height={400} />, title: "Dashboard", desc: "Main application interface" },
+          { component: <PerformancePlaceholder width={800} height={400} />, title: "Analytics", desc: "Performance monitoring" }
+        ]
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section with Clean Background Only */}
+      <div className="relative h-96 bg-gray-900 overflow-hidden">
+        {getHeroBackground(project.slug)}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl px-4">
+            <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">{project.description}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Breadcrumb Navigation */}
+        <nav className="mb-8">
+          <Link 
+            href="/projects"
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4 mr-1" />
+            Back to Projects
+          </Link>
+        </nav>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="md:col-span-2 space-y-8">
+            {/* Project Overview */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+              <div className="prose max-w-none">
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  {project.fullDescription || project.description}
+                </p>
+              </div>
+            </section>
+
+            {/* Screenshots Gallery */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Screenshots</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {getScreenshots(project.slug).map((screenshot, index) => (
+                  <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div className="relative">
+                      {screenshot.component}
                     </div>
-
-                    {/* Tech Stack */}
-                    <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Tech Stack</h2>
-                        <div className="flex flex-wrap gap-3">
-                            {project.techStack.map((tech, index) => (
-                                <span 
-                                    key={index}
-                                    className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-gray-900">{screenshot.title}</h3>
+                      <p className="text-gray-600 text-sm">{screenshot.desc}</p>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-                    {/* Features, Challenges, and Outcomes Grid */}
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {/* Features */}
-                        <div className="bg-white rounded-lg shadow-lg p-6">
-                            <h3 className="text-xl font-bold text-green-600 mb-4">Key Features</h3>
-                            <ul className="space-y-2">
-                                {project.features.map((feature, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <span className="text-green-500 mr-2">✓</span>
-                                        <span className="text-gray-700 text-sm">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Challenges */}
-                        <div className="bg-white rounded-lg shadow-lg p-6">
-                            <h3 className="text-xl font-bold text-orange-600 mb-4">Challenges Solved</h3>
-                            <ul className="space-y-2">
-                                {project.challenges.map((challenge, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <span className="text-orange-500 mr-2">⚡</span>
-                                        <span className="text-gray-700 text-sm">{challenge}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Outcomes */}
-                        <div className="bg-white rounded-lg shadow-lg p-6">
-                            <h3 className="text-xl font-bold text-purple-600 mb-4">Outcomes</h3>
-                            <ul className="space-y-2">
-                                {project.outcomes.map((outcome, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <span className="text-purple-500 mr-2">🎯</span>
-                                        <span className="text-gray-700 text-sm">{outcome}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Back Button */}
-                    <div className="mt-12 text-center">
-                        <a 
-                            href="/projects" 
-                            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                        >
-                            <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            Back to All Projects
-                        </a>
-                    </div>
+            {/* Architecture Diagram */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Architecture</h2>
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="relative">
+                  <ArchitecturePlaceholder width={800} height={500} />
                 </div>
+                <div className="p-4 border-t">
+                  <h3 className="font-semibold text-gray-900">System Architecture</h3>
+                  <p className="text-gray-600 text-sm">High-level overview of system components and data flow</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Key Features */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h2>
+              <div className="grid gap-4">
+                {project.features?.map((feature, index) => (
+                  <div key={index} className="flex items-start space-x-3 p-4 bg-white rounded-lg shadow-sm">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-700">{feature}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Project Links */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Project Links</h3>
+              <div className="space-y-3">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-700 hover:text-gray-900 transition-colors"
+                  >
+                    <Github className="w-5 h-5 mr-2" />
+                    View Source Code
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-700 hover:text-gray-900 transition-colors"
+                  >
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    View Live Demo
+                  </a>
+                )}
+              </div>
             </div>
-        </>
-    );
+
+            {/* Tech Stack with Theme-Matched Icons */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Technology Stack</h3>
+              <div className="space-y-3">
+                {project.technologies.map((tech) => (
+                  <div key={tech} className="flex items-center space-x-3">
+                    <TechIconPlaceholder tech={tech} size={32} />
+                    <span className="text-gray-700">{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Project Stats */}
+            {project.outcomes && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="font-semibold text-gray-900 mb-4">Key Outcomes</h3>
+                <div className="space-y-3">
+                  {project.outcomes.map((outcome, index) => (
+                    <div key={index} className="text-sm">
+                      <div className="text-gray-900 font-medium">{outcome.metric}</div>
+                      <div className="text-gray-600">{outcome.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Generate static params for all projects (helps with performance)
+export async function generateStaticParams() {
+  const projects = await getAllProjects()
+  return projects.map((project) => ({
+    slug: project.slug,
+  }))
 }

@@ -1,9 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navigation from '../components/Navigation';
-import { getAllProjects } from '../data/projects';
+import { getAllProjects } from '@/lib/projects';
+import { Card, CardHeader, CardContent, CardTitle, CardDescription, Badge, FadeIn, StaggerContainer } from '@/components/ui';
+import { ArrowRight, Calendar, Tag } from 'lucide-react';
 
-export default function ProjectsPage() {
-    const projects = getAllProjects();
+export default async function ProjectsPage() {
+    const projects = await getAllProjects();
 
     return (
         <>
