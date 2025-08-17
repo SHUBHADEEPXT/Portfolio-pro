@@ -58,7 +58,7 @@ Deliver a live, documented portfolio project that demonstrates:
 ## 📊 Current Progress
 **Started:** August 6, 2025 
 **Current Phase:** Week 1 – Frontend Foundation 
-**Days Completed:** 4/28
+**Days Completed:** 5/28
 
 **Completed So Far:**
 - WSL development environment
@@ -66,6 +66,7 @@ Deliver a live, documented portfolio project that demonstrates:
 - React fundamentals & interactive components
 - Next.js multi-page navigation
 - Dynamic routing with `[slug]`
+- Tailwind CSS v4 design system (custom tokens, hero section, reusable structure)
 
 ---
 
@@ -77,4 +78,4 @@ Deliver a live, documented portfolio project that demonstrates:
 
 ---
 
-_Last updated: August 12, 2025_
+_Last updated: August 17, 2025_

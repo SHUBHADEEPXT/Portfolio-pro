@@ -2,7 +2,7 @@
 
 **Duration:** 28-Day Program 
 **Started:** August 6, 2025 
-**Current Status:** Day 4 Complete ✅
+**Current Status:** Day 5 Complete ✅
 
 ---
 
@@ -49,22 +49,33 @@
 
 ---
 
+### ✅ **Day 5**: Tailwind CSS & Design System
+- **Date**: August 17, 2025
+- **Focus**: Tailwind setup, tokens, Hero component, image handling
+- **Highlights**:
+- Styled UI restored with gradients
+- Reusable design system in place
+[Details](./daily-logs/DAY-05-DESIGN-SYSTEM.md)
+
+---
+
 ## 🏆 Completed Milestones
 - Environment setup (WSL + Node.js)
 - GitHub dual-account workflow
 - React fundamentals
 - Multi-page routing in Next.js
 - Dynamic routing
+- Tailwind CSS v4 design system (custom tokens, hero section, reusable structure)
 
 ---
 
 ## 🎯 Tomorrow’s Focus
-- Styling improvements
-- Global layout with header/footer
-- Placeholder content integration
+- Build UI primitives under `src/components/ui/` (Button, Badge, Card) 
+- Replace ad-hoc classes with `cn()` helper + design tokens 
+- Add placeholder images and test `next/image` settings for optimization 
 
 ---
 
-**Last Updated**: August 12, 2025
+**Last Updated**: August 17, 2025
 **Current Phase**: Frontend Foundation (Week 1)
-**Next Milestone**: Professional Styling & Layout (Day 5)
+**Next Milestone**: Improvise UI (Day 6)

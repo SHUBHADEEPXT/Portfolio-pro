@@ -101,7 +101,7 @@ This project is being documented in detail for:
 ---
 
 **Author**: Shubhadeep Bhowmik
-**Days Completed**: 4/28
-**Last Updated**: August 12, 2025
+**Days Completed**: 5/28
+**Last Updated**: August 17, 2025
 **License**: MIT
 
