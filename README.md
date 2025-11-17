@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 **A 28-Day Journey to Build a Production-Ready DevOps Portfolio**
-Combining **full-stack development** with **professional DevOps practices** — from frontend UI to CI/CD pipelines, infrastructure as code, and monitoring.
+Combining **full-stack development** with **professional DevOps practices** — from frontend UI to CI/CD pipelines, infrastructure as code, and monitoring. (Currently on hold, Restarting soon)
 
 ---
 
